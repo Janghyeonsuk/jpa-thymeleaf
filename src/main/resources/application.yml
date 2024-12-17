@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: tem
+  thymeleaf:
+    cache: false
