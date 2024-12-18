@@ -1,0 +1,17 @@
+<h1>글 쓰기</h1>
+
+<div th:utext="${errorMessage}"></div>
+
+<form method="POST" th:object="${postWriteForm}">
+    <div th:if="${#fields.hasAnyErrors()}">
+        <div th:each="err : ${#fields.allErrors().stream().sorted()}" th:text="${err.split('-', 2)[1]}"/>
+    </div>
+
+    <label for="title">제목</label>
+    <input type="text" placeholder="제목을 입력해주세요." th:field="*{title}">
+    <br>
+    <label for="content">내용</label>
+    <textarea placeholder="내용" th:field="*{content}"></textarea>
+    <br>
+    <button type="submit">글쓰기</button>
+</form>
